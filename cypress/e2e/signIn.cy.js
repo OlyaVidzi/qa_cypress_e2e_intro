@@ -14,7 +14,7 @@ describe('Sign In page', () => {
     cy.get('h1').should('contain.text', 'Sign in');
     cy.get('[placeholder=Email]').type(email);
     cy.get('[placeholder=Password]').type(password);
-    cy.get('button').contains('Sign in').click();
+    cy.get('.btn').click();
 
     cy.get('.nav-link').contains(username).should('be.visible');
   });
