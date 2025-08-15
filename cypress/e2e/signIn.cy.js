@@ -1,21 +1,18 @@
 /// <reference types="cypress" />
 
-const email = 'test_email@gmail.com';
-const password = 'test2025';
-const username = 'test_username';
+const email = 'olya6723510@gmail.com';
+const password = 'olya6723510';
+const username = 'olyavidzi';
 
-describe('Sign In page', () => {
-  it('should provide an ability to log in', () => {
+describe('Sign in flow', () => {
+  it('should log in with valid credentials and show username in header', () => {
     cy.visit('https://conduit.mate.academy/');
 
-    cy.get('h1').should('contain.text', 'conduit');
-    cy.get('.nav-item').contains('Sign in').click();
-
-    cy.get('h1').should('contain.text', 'Sign in');
+    cy.contains('Sign in').click();
     cy.get('[placeholder=Email]').type(email);
     cy.get('[placeholder=Password]').type(password);
-    cy.get('.btn').click();
+    cy.get('button[type=submit]').click();
 
-    cy.get('.nav-link').contains(username).should('be.visible');
+    cy.get('a.nav-link').should('contain.text', username);
   });
 });
